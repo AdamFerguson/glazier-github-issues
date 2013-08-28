@@ -11,6 +11,15 @@ var ApplicationRoute = Ember.Route.extend({
     }
   },
   events: {
+    openDetail: function(issue) {
+      card.consumers.intent.send('triggerIntent', {
+        cardName: "glazier-github-issue",
+        action: 'showIssue',
+        data: {
+          number: Ember.get(issue, 'number')
+        }
+      });
+    },
     currentUserChanged: function(user) {
       var route = this;
       var applicationController = route.controllerFor('application');

@@ -2,7 +2,7 @@
 {{#each}}
   <li>
     <span class="icon-issue stick-left"></span>
-    <span>{{title}}</span>
+    <a href="#" {{action "openDetail" this}}>{{title}}</a>
     <span class="pull-right">#{{number}}</span>
   </li>
 {{/each}}
