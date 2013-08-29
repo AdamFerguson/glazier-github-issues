@@ -10,7 +10,7 @@ var ApplicationRoute = Ember.Route.extend({
       this.transitionTo('disabled');
     }
   },
-  events: {
+  actions: {
     openDetail: function(issue) {
       card.consumers.intent.send('triggerIntent', {
         cardName: "glazier-github-issue",
