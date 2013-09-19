@@ -7,7 +7,7 @@
       "authenticatedGithubApi",
       "intent"
     ],
-    "assetHost": "http://glazier.s3.amazonaws.com"
+    "assetHost": "https://glazier.s3.amazonaws.com"
   },
   "version": "0.0.1",
   "description": "",
