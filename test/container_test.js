@@ -13,9 +13,7 @@ module("Github::Issues Acceptances", {
       conductorURL: '/vendor/conductor.js.html'
     });
 
-    conductor.services['test'] = TestService;
-
-    conductor.services['unauthenticatedGithubApi'] = Conductor.Oasis.Service.extend({
+    var UnauthenticatedService = Conductor.Oasis.Service.extend({
       requests: {
         ajax: function(ajaxOpts) {
           return [];
@@ -25,7 +23,11 @@ module("Github::Issues Acceptances", {
 
     conductor.loadData('/cards/glazier-github-issues/card.js', 1, {user: null, repositoryName: 'emberjs/ember.js'});
     card = conductor.load('/cards/glazier-github-issues/card.js', 1, {
-      capabilities: ['test', 'unauthenticatedGithubApi']
+      capabilities: ['test', 'unauthenticatedGithubApi'],
+      services: {
+        test: TestService,
+        unauthenticatedGithubApi: UnauthenticatedService
+      }
     });
 
     var promise = card.appendTo('#qunit-fixture');
